@@ -1,3 +1,5 @@
+import random
+
 def merge_sort(array):
     if len(array) == 1:
         return array
@@ -20,3 +22,8 @@ def pop_smaller_head(array1, array2):
 
 print merge_sort([0, 1, 2, 3, 4])
 print merge_sort([1, 3, 5, 2, 4, 6])
+
+random_array = [random.randint(0, 100) for i in range(100)]
+
+
+print sorted(random_array) == merge_sort(random_array)
