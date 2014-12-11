@@ -4,8 +4,8 @@
 
 class DivisorDigits:
     def howMany(self, number):
-        digits = [digit for digit in str(number) if int(digit) != 0 and number % int(digit) == 0]
-        return len(digits)
+        return len([digit for digit in str(number) if int(digit) != 0 and number % int(digit) == 0])
+
 
 dd = DivisorDigits()
 print dd.howMany(12345)
