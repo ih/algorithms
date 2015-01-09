@@ -5,8 +5,15 @@ import shutil
 
 print 'copying'
 
+def getCurrentSnapshotNumber():
+    snapshot_names = next(os.walk('.myvcs/'))[1]
+    return max([int(name) for name in snapshot_names])
+
+current_snapshot = 0
+
 if os.path.isdir(os.path.join(os.getcwd(), '.myvcs')):
-    shutil.rmtree(os.path.join(os.getcwd(), '.myvcs'))
+    current_snapshot = getCurrentSnapshotNumber()
 
-shutil.copytree(os.getcwd(), os.getcwd() + '/.myvcs')
-
+shutil.copytree(
+    os.getcwd(), os.path.join(os.getcwd(), '.myvcs', str(current_snapshot + 1)),
+    ignore=shutil.ignore_patterns(('.myvcs')))
