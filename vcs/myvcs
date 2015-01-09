@@ -1,0 +1,12 @@
+#!/usr/bin/python
+
+import os
+import shutil
+
+print 'copying'
+
+if os.path.isdir(os.path.join(os.getcwd(), '.myvcs')):
+    shutil.rmtree(os.path.join(os.getcwd(), '.myvcs'))
+
+shutil.copytree(os.getcwd(), os.getcwd() + '/.myvcs')
+
